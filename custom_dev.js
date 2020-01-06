@@ -82,7 +82,26 @@ var customSearchLink = function () {
 }
 
 //Detail View Tasks -- Independent
-var detailViewIconReplace = function () {
+/*
+Purpose: Replaces the format image with words
+Desktop Incoming Markup: 
+  <div id="formatContainer0" class="format_container">
+    <div title="Book" class="formatType text-p">
+      <span aria-hidden="true" style="" class="formatTypeIcon formatTypeIcon-BOOK icon-p"></span>
+      <span class="formatText">Book</span>
+    </div>
+  </div>
+
+Desktop Outgoing Markup:   
+  <div id="formatContainer0" class="format_container">
+    <div title="Book" class="formatType text-p">Book</div>
+  </div>
+
+Mobile Incoming Markup: TBD
+Mobile Outgoing Markup: TBD
+
+*/
+var detailViewIconReplace = function () {  
   var format_containerDiv = document.getElementsByClassName('format_container');
   var iconTexts = Array();
   for (var i = 0; i < format_containerDiv.length; i++) {
