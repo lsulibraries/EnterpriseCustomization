@@ -99,7 +99,6 @@ Desktop Outgoing Markup:
 
 Mobile Incoming Markup: TBD
 Mobile Outgoing Markup: TBD
-
 */
 var detailViewIconReplace = function () {  
   var format_containerDiv = document.getElementsByClassName('format_container');
@@ -171,6 +170,66 @@ var citationPopup = function (oclcNUM, oclcISBN, oclcISSN) {
   window.open("" + myURL, "mywindow", "location=1,scrollbars=1,resizable=1,width=800, height=400");
 }
 
+/*
+Purpose: Hide the default cover image; only shows the 
+  image if it’s actually the book cover
+Desktop Incoming Markup w/ Image: 
+  <div class="detail_cover_art_div">
+    <img 
+      src="https://secure.syndetics.com/index.aspx?type=xw12&amp;client=louislibnet&amp;upc=&amp;oclc=&amp;isbn=9781560983729/LC.JPG" 
+      alt="Cover image for " 
+      id="detailCover0" 
+      title="Cover image for " 
+      class="detail_cover_art">
+  <div class="facebook_like_detail"></div>
+  </div>
+
+Desktop Outgoing Markup  w/ Image:   
+  <div class="detail_cover_art_div">
+    <img 
+      src="https://secure.syndetics.com/index.aspx?type=xw12&amp;client=louislibnet&amp;upc=&amp;oclc=&amp;isbn=9781560983729/LC.JPG" 
+      alt="Cover image for " 
+      id="detailCover0" 
+      title="Cover image for " 
+      class="detail_cover_art">
+    <div class="facebook_like_detail"></div>
+    </div>
+
+Desktop Incoming Markup  w/o Image: 
+<div class="detail_cover_art_div">
+  <img 
+    src="/client/assets/5.523.17/ctx//client/images/no_image.png" 
+    alt="Cover image for " 
+    id="detailCover0" 
+    title="Cover image for " 
+    class="detail_cover_art">
+  <div 
+    style="display:none" 
+    title="Cover image for " 
+    class="no_image_text" 
+    id="detailCover0Title"></div>
+  <div class="facebook_like_detail"></div>
+</div>
+
+Desktop Outgoing Markup  w/o Image:   
+<div class="detail_cover_art_div" style="display: none;">
+  <img 
+    src="/client/assets/5.523.17/ctx//client/images/no_image.png" 
+    alt="Cover image for " 
+    id="detailCover0" 
+    title="Cover image for " 
+    class="detail_cover_art">
+  <div 
+    style="display: block;" 
+    title="Cover image for " 
+    class="no_image_text" 
+    id="detailCover0Title"></div>
+  <div class="facebook_like_detail"></div>
+</div>
+
+Mobile Incoming Markup: TBD
+Mobile Outgoing Markup: TBD
+*/
 var hideMissingDetailBookImage = function () {
   /* this function sets all detail cover art images hidden.
      then, when the anonymous function in Enterprise reassigns the image src
